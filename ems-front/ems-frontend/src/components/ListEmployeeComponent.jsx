@@ -26,14 +26,21 @@ const ListEmployeeComponent = () => {
     function updateEmployee(id){
         navigator(`/edit-employee/${id}`)
     }
-    function removeEmployee(id)
+    function removeEmployee(id,fName,lName)
     {
-        deleteEmployee(id).then((response)=>
-        {
-            getAllEmployees();
-        }).catch(error=>{
-            console.log(error);
-        });
+        const isConfirmed = window.confirm("Are you sure you want to delete "+ fName+" "+ lName+" ?");
+        if(isConfirmed)
+        {      
+            deleteEmployee(id).then((response)=>
+            {
+                getAllEmployees();
+            }).catch(error=>{
+                console.log(error);
+            });
+        }else{
+            
+        }
+
     }
   return (
     <div className='container '>
@@ -59,7 +66,7 @@ const ListEmployeeComponent = () => {
                             <td>{employee.email}</td>
                             <td>
                                 <button className='btn btn-outline-info'onClick={()=>updateEmployee(employee.id)}>Update</button>
-                                <button className='btn btn-outline-danger 'onClick={()=>removeEmployee(employee.id)}
+                                <button className='btn btn-outline-danger 'onClick={()=>removeEmployee(employee.id,employee.fName , employee.lName)}
                                     style={{marginLeft: '10px'}}
                                     >Delete</button>
                            </td>
