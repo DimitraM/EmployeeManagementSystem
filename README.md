@@ -23,3 +23,4 @@ It follows the tutorial series from the accompanying video playlist.
 
 
 
+<img width="1902" height="1038" alt="image" src="https://github.com/user-attachments/assets/f624311e-b06e-4661-9958-6f587908e13b" />
